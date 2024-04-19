@@ -1,0 +1,7 @@
+{
+  "name": "zafirusMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
