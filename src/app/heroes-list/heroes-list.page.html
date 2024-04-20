@@ -1,13 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>HeroesList</ion-title>
+<ion-header [translucent]="false">
+  <ion-toolbar color="white" class="bg-primary text-white">
+    <ion-button (click)="return()">Return</ion-button>
+    <ion-title>Heroes List</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">HeroesList</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" *ngIf="!loading">
+  <ion-card *ngFor="let item of heroes" (click)="goToItemDetail(item)">
+    <div class="w-10 h-10 md:w-20 md:h-20 bg-cover">
+      <ion-img [src]="item.thumbnail.path.replace('http://', 'https://') + '.' + item.thumbnail.extension"></ion-img>
+    </div>
+    <h2 class="mt-8 text-l md:text-2xl">{{item.name}}</h2>
+  </ion-card>
 </ion-content>
