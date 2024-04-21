@@ -1,15 +1,19 @@
 <ion-header [translucent]="false">
   <ion-toolbar color="white" class="bg-primary text-white">
-    <ion-button (click)="return()">Return</ion-button>
-    <ion-title>Heroes List</ion-title>
+    <ion-button (click)="return()" fill="clear">Back</ion-button>
+    <ion-title>Listado de Superheroes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="!loading">
+<ion-content [fullscreen]="false" *ngIf="!loading">
   <ion-card *ngFor="let item of heroes" (click)="goToItemDetail(item)">
-    <div class="w-10 h-10 md:w-20 md:h-20 bg-cover">
-      <ion-img [src]="item.thumbnail.path.replace('http://', 'https://') + '.' + item.thumbnail.extension"></ion-img>
-    </div>
-    <h2 class="mt-8 text-l md:text-2xl">{{item.name}}</h2>
+    <ion-row>
+      <ion-col size-xs="6" size-sm="6" size-md="6" size-lg="6" size-xl="6">
+        <ion-img [src]="item.thumbnail.path.replace('http://', 'https://') + '.' + item.thumbnail.extension"></ion-img>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="6" size-lg="6" size-xl="6">
+        <h2 class="mt-8 text-l md:text-2xl">{{item.name}}</h2>
+      </ion-col>
+    </ion-row>
   </ion-card>
 </ion-content>

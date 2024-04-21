@@ -1,31 +1,36 @@
 <ion-header [translucent]="false">
   <ion-toolbar color="white" class="bg-primary text-white">
-    <ion-button (click)="return()">Return</ion-button>
-
-    <ion-title>Relevant information about the hero</ion-title>
+    <ion-button (click)="return()" fill="clear">Back</ion-button>
+    <ion-title>{{this.heroeDetail?.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="w-64 h-64 mx-auto mt-8 max-w-64 max-h-64 mb-8">
-    <ion-img class="rounded-photo focus-in max-h-64"
-      [src]="this.heroeDetail?.thumbnail?.path?.replace('http://', 'https://') + '.' + this.heroeDetail?.thumbnail?.extension"></ion-img>
+  <div>
+    <ion-card>
+      <ion-img class="rounded-photo focus-in max-h-64"
+        [src]="this.heroeDetail?.thumbnail?.path?.replace('http://', 'https://') + '.' + this.heroeDetail?.thumbnail?.extension"></ion-img>
+    </ion-card>
   </div>
-  <div class="p-2 mt-6 border border-gray-400" *ngIf="this.heroeDetail?.description">
-    <ion-text class="font-bold text-gray-700 text-sm">
-      {{this.heroeDetail?.description}}
-    </ion-text>
+  <div *ngIf="this.heroeDetail?.description">
+    <ion-card>
+      <ion-text class="font-bold text-gray-700 text-sm">
+        {{this.heroeDetail?.description}}
+      </ion-text>
+    </ion-card>
   </div>
-  <div class="p-2 border border-gray-400 flex justify-between text-gray-700 text-sm">
-    <ion-text> Cantidad de comics disponibles: </ion-text>
-    <ion-text> {{this.heroeDetail?.comics?.available}} </ion-text>
-  </div>
-  <div class="p-2 border border-gray-400 flex justify-between text-gray-700 text-sm">
-    <ion-text translate> Cantidad de series disponibles: </ion-text>
-    <ion-text> {{this.heroeDetail?.series?.available}} </ion-text>
-  </div>
-  <div class="p-2 border border-gray-400 flex justify-between text-gray-700 text-sm">
-    <ion-text translate> Cantidad de stories disponibles: </ion-text>
-    <ion-text> {{this.heroeDetail?.stories?.available}} </ion-text>
-  </div>
+  <ion-card>
+    <div>
+      <ion-text> Cantidad de comics disponibles: </ion-text>
+      <ion-text> {{this.heroeDetail?.comics?.available}} </ion-text>
+    </div>
+    <div>
+      <ion-text translate> Cantidad de series disponibles: </ion-text>
+      <ion-text> {{this.heroeDetail?.series?.available}} </ion-text>
+    </div>
+    <div>
+      <ion-text translate> Cantidad de stories disponibles: </ion-text>
+      <ion-text> {{this.heroeDetail?.stories?.available}} </ion-text>
+    </div>
+  </ion-card>
 </ion-content>
